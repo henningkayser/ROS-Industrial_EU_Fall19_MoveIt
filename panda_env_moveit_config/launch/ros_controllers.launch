@@ -1,11 +1,16 @@
 <?xml version="1.0"?>
 <launch>
+  <arg name="sim_execution" default="false"/>
+  <arg name="spawn_controllers" default="joint_state_controller" />
 
   <!-- Load joint controller configurations from YAML file to parameter server -->
   <rosparam file="$(find panda_env_moveit_config)/config/ros_controllers.yaml" command="load"/>
 
-  <!-- Load the controllers -->
-  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" args=""/>
+  <!-- Start SIMULATION hardware -->
+  <node if="$(arg sim_execution)" name="arm_sim_controller" pkg="moveit_sim_controller"
+    type="moveit_sim_hw_main"/>
 
+  <!-- Start ros_control controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" args="$(arg spawn_controllers)" />
 </launch>
