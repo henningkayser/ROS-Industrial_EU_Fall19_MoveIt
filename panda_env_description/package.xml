@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>panda_env_description</name>
+  <version>0.0.1</version>
+  <description>The panda_robot_env package</description>
+
+  <maintainer email="henningkayser@picknik.ai">Jenning Kayser</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

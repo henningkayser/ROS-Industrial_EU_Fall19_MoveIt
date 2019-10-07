@@ -1,0 +1,8 @@
+- git:
+    local-name: upstream/fake_joint
+    uri: https://github.com/tork-a/fake_joint
+    version: master
+- git:
+    local-name: upstream/moveit_task_constructor
+    uri: https://github.com/ros-planning/moveit_task_constructor
+    version: master

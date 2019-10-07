@@ -1,0 +1,4 @@
+<launch>
+  <!-- Load robot description  -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find panda_env_description)/urdf/panda_robot_env.urdf.xacro'" />
+</launch>

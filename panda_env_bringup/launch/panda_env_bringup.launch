@@ -1,0 +1,30 @@
+<launch>
+  <arg name="use_rviz" default="true"/>
+  <arg name="use_rqt" default="false"/>
+
+  <!-- Load robot description -->
+  <include file="$(find panda_env_description)/launch/panda_upload.launch.xml" />
+
+  <!-- fake_joint_driver_node -->
+  <node name="fake_joint_driver" pkg="fake_joint_driver" type="fake_joint_driver_node">
+    <rosparam command="load" file="$(find panda_env_bringup)/config/start_position.yaml"/>
+  </node>
+  
+  <!-- robot_state_publisher -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+  <!-- Load joint trajectory controller -->
+  <rosparam file="$(find panda_env_bringup)/config/ros_controllers.yaml" />
+  <node name="controller_spawner" pkg="controller_manager" type="spawner"
+	respawn="false" args="joint_state_controller arm_trajectory_controller"/>
+
+  <!-- Launch rviz -->
+  <node if="$(arg use_rviz)"
+	name="rviz" pkg="rviz" type="rviz"
+	args="-d $(find panda_env_bringup)/launch/panda_env_bringup.rviz"/>
+
+  <!-- Launch rqt joint_trajectory_controller -->
+  <node if="$(arg use_rqt)"
+	name="rqt" pkg="rqt_gui" type="rqt_gui"
+	args="-s rqt_joint_trajectory_controller.joint_trajectory_controller.JointTrajectoryController"/>
+</launch>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro"
+       name="panda">
+  <!--
+  ##################
+  URDF Tree:
+     world
+      - wall
+      - table
+        - table_top
+	        - panda
+  ##################
+  -->
+
+  <!-- World -->
+  <link name="world"/>
+
+  <!-- Wall -->
+  <link name="wall">
+    <visual>
+      <origin rpy="0 0 0.0" xyz="0.0 0.0 1.25"/>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+      <geometry>
+        <box size="3 0.2 2.5"/>
+      </geometry>
+    </visual>
+  </link>
+  <joint name="world_wall_joint" type="fixed">
+    <parent link="world" />
+    <child link="wall" />
+    <origin xyz="0.0 -0.7 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <!-- Table -->
+  <link name="table">
+    <visual>
+      <origin rpy="0 0 0.0" xyz="0.0 0 0.6"/>
+      <material name="Black"/>
+      <geometry>
+        <box size="1.2 1.2 1.2"/>
+      </geometry>
+    </visual>
+  </link>
+  <joint name="world_table_joint" type="fixed">
+    <parent link="world" />
+    <child link="table" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <!-- Table Top -->
+  <link name="table_top"/>
+  <joint name="table_top_joint" type="fixed">
+    <parent link="table" />
+    <child link="table_top" />
+    <origin xyz="0.0 0.0 1.2" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <!-- Panda Robot -->
+  <xacro:include filename="$(find franka_description)/robots/panda_arm.xacro" />
+  <xacro:include filename="$(find franka_description)/robots/hand.xacro" />
+  <xacro:panda_arm />
+  <xacro:hand ns="panda" rpy="0 0 ${-pi/4}" connected_to="panda_link8"/>
+  <joint name="table_top_panda_joint" type="fixed">
+    <parent link="table_top" />
+    <child link="panda_link0" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 1.57" />
+  </joint>
+</robot>
