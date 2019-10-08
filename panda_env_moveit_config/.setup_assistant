@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: panda_env_description
+    relative_path: urdf/panda_robot_env.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/panda.srdf
+  CONFIG:
+    author_name: Henning Kayser
+    author_email: henningkayser@picknik.ai
+    generated_timestamp: 1570471248
