@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>panda_env_mtc_demo</name>
+  <version>0.0.1</version>
+  <description>The panda_env_mtc_demo package</description>
+
+  <maintainer email="henningkayser@picknik.ai">Henning Kayser</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend >panda_env_moveit_config</exec_depend>
+  <exec_depend>moveit_task_constructor_demo</exec_depend>
+</package>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- GDB Debug Option -->
+  <arg name="debug" default="false" />
+  <arg unless="$(arg debug)" name="launch_prefix" value="" />
+  <arg     if="$(arg debug)" name="launch_prefix"
+	   value="gdb -x $(find panda_env_moveit_config)/launch/gdb_settings.gdb --ex run --args" />
+
+  <!-- Run MTC pick and place -->
+  <node name="moveit_task_constructor_demo" pkg="moveit_task_constructor_demo" type="moveit_task_constructor_demo" launch-prefix="$(arg launch_prefix)" output="screen">
+    <param name="execute" value="true" />
+    <rosparam command="load" file="$(find panda_env_mtc_demo)/config/panda_env_config.yaml" />
+  </node>
+</launch>
