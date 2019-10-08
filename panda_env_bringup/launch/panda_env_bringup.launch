@@ -28,4 +28,9 @@
   <node if="$(arg use_rqt)"
 	name="rqt" pkg="rqt_gui" type="rqt_gui"
 	args="-s rqt_joint_trajectory_controller.joint_trajectory_controller.JointTrajectoryController"/>
+
+
+<!--
+  <include file="$(find panda_env_moveit_config)/launch/move_group.launch" />
+-->
 </launch>
