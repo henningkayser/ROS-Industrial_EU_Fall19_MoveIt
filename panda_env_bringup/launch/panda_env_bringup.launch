@@ -15,8 +15,8 @@
 
   <!-- Load joint trajectory controller -->
   <rosparam file="$(find panda_env_bringup)/config/ros_controllers.yaml" />
-  <node name="controller_spawner" pkg="controller_manager" type="spawner"
-	respawn="false" args="joint_state_controller arm_trajectory_controller"/>
+  <node name="controller_manager" pkg="controller_manager" type="controller_manager"
+	respawn="false" args="spawn joint_state_controller arm_trajectory_controller hand_controller"/>
 
   <!-- Launch rviz -->
   <node if="$(arg use_rviz)"

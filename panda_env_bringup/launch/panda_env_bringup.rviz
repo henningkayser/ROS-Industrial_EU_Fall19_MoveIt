@@ -6,8 +6,9 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /Motion Planning Tasks1
       Splitter Ratio: 0.5
-    Tree Height: 1134
+    Tree Height: 1167
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -27,6 +28,26 @@ Panels:
     Name: Time
     SyncMode: 0
     SyncSource: ""
+  - Class: moveit_task_constructor/Motion Planning Tasks
+    Global Settings:
+      Task View Settings:
+        Task Expansion: All Expanded
+    Name: Motion Planning Tasks
+    Tasks View:
+      property_splitter:
+        - 309
+        - 917
+      solution_sorting:
+        column: 0
+        order: 1
+      solutions_splitter:
+        - 212
+        - 56
+      solutions_view_columns: ~
+      tasks_view_columns:
+        - 33
+        - 83
+        - 83
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -145,6 +166,128 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
+    - Class: rviz/InteractiveMarkers
+      Enable Transparency: true
+      Enabled: true
+      Name: InteractiveMarkers
+      Show Axes: false
+      Show Descriptions: true
+      Show Visual Aids: false
+      Update Topic: /object_controls/update
+      Value: true
+    - Class: moveit_task_constructor/Motion Planning Tasks
+      Enabled: true
+      Interrupt Display: false
+      Loop Animation: false
+      Markers:
+        All at once?: false
+        Value: true
+      Name: Motion Planning Tasks
+      Robot:
+        Fixed Robot Color: 150; 50; 150
+        Links:
+          All Links Enabled: true
+          Expand Joint Details: false
+          Expand Link Details: false
+          Expand Tree: false
+          Link Tree Style: Links in Alphabetic Order
+          panda_hand:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          panda_leftfinger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          panda_link0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          panda_link1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          panda_link2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          panda_link3:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          panda_link4:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          panda_link5:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          panda_link6:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          panda_link7:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          panda_link8:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          panda_rightfinger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          table:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          table_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          wall:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          world:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+        Robot Alpha: 0.5
+        Show Robot Collision: false
+        Show Robot Visual: true
+        Use Fixed Robot Color: false
+        Value: ""
+      Robot Description: robot_description
+      Scene:
+        Attached Body Color: 150; 50; 150
+        Scene Alpha: 0.8999999761581421
+        Scene Color: 50; 230; 50
+        Value: true
+        Voxel Coloring: Z-Axis
+        Voxel Rendering: Occupied Voxels
+      Show Trail: false
+      State Display Time: 0.05 s
+      Task Solution Topic: /moveit_task_constructor_demo/pick_place_task/solution
+      Tasks:
+        pick_place_task: 0
+      Trail Step Size: 1
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -188,7 +331,7 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6853974461555481
+      Pitch: 0.6903974413871765
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
       Yaw: 2.080394983291626
@@ -196,10 +339,14 @@ Visualization Manager:
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1407
+  Height: 1440
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd000000040000000000000171000004f2fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000004e00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afc00000031000004f2000000a600fffffffa000000000100000003fb000000100044006900730070006c0061007900730100000000ffffffff0000015300fffffffb0000001a004a006f0067004a006f0069006e007400500061006e0065006c0100000000ffffffff0000000000000000fb0000001a004a006f0067004600720061006d006500500061006e0065006c0100000000ffffffff0000000000000000fb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f000004f2fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730100000031000004f20000008c00fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b20000000000000000000000020000073f00000138fc0100000001fb0000000a00560069006500770073030000004e00000080000002e1000001970000000300000a000000003efc0100000002fb0000000800540069006d0065010000000000000a00000001b300fffffffb0000000800540069006d0065010000000000000450000000000000000000000776000004f200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Motion Planning Tasks:
+    collapsed: false
+  Motion Planning Tasks - Slider:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd00000004000000000000017100000513fc0200000009fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000004e00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afc0000003100000513000000a600fffffffa000000000100000003fb000000100044006900730070006c0061007900730100000000ffffffff0000015300fffffffb0000001a004a006f0067004a006f0069006e007400500061006e0065006c0100000000ffffffff0000000000000000fb0000001a004a006f0067004600720061006d006500500061006e0065006c0100000000ffffffff0000000000000000fb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb000000120020002d00200053006c00690064006500720000000000ffffffff0000003800ffffff000000010000010f00000513fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fc0000003100000513000000d301000016fa000000000100000002fb0000002a004d006f00740069006f006e00200050006c0061006e006e0069006e00670020005400610073006b00730100000000ffffffff0000009600fffffffb0000000a0056006900650077007301000008f10000010f000000fe00fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b20000000000000000000000020000073f00000138fc0100000001fb0000000a00560069006500770073030000004e00000080000002e1000001970000000300000a000000003efc0100000002fb0000000800540069006d0065010000000000000a00000001b300fffffffb0000000800540069006d00650100000000000004500000000000000000000007760000051300000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -210,4 +357,4 @@ Window Geometry:
     collapsed: false
   Width: 2560
   X: 0
-  Y: 33
+  Y: 0

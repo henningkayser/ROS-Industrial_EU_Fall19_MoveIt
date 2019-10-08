@@ -1,0 +1,14 @@
+<launch>
+  <!-- Load joint trajectory controller -->
+  <rosparam file="$(find panda_env_bringup)/config/ros_controllers.yaml" />
+  <node name="controller_unspawner" pkg="controller_manager" type="unspawner"
+	respawn="false" args="arm_trajectory_controller"/>
+  <node name="controller_spawner" pkg="controller_manager" type="spawner"
+	respawn="false" args="arm_position_controller"/>
+
+  <!-- This node does the jogging calculations -->
+  <node name="jog_server" pkg="moveit_jog_arm" type="jog_server" output="screen" >
+    <param name="parameter_ns" type="string" value="jog_server" />
+    <rosparam command="load" file="$(find panda_env_bringup)/config/panda_jog_arm.yaml" />
+  </node>
+</launch>
