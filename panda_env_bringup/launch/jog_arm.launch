@@ -12,4 +12,6 @@
     <param name="parameter_ns" type="string" value="jog_server" />
     <rosparam command="load" file="$(find panda_env_bringup)/config/panda_jog_arm.yaml" />
   </node>
+
+  <node name="jog_interactive_marker" pkg="panda_env_bringup" type="interactive_marker.py" />
 </launch>
