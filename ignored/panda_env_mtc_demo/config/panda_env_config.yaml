@@ -9,7 +9,7 @@ hand_frame: "panda_link8"
 
 # Poses
 hand_open_pose: "open"
-hand_close_pose: "close"
+hand_close_pose: "closed"
 arm_home_pose: "ready"
 
 # Scene frames
