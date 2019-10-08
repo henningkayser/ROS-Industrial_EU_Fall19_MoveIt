@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <arg name="use_rviz" default="true"/>
   <arg name="use_rqt" default="false"/>
@@ -9,7 +10,7 @@
   <node name="fake_joint_driver" pkg="fake_joint_driver" type="fake_joint_driver_node">
     <rosparam command="load" file="$(find panda_env_bringup)/config/start_position.yaml"/>
   </node>
-  
+
   <!-- robot_state_publisher -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
@@ -21,7 +22,7 @@
   <!-- Launch rviz -->
   <node if="$(arg use_rviz)"
 	name="rviz" pkg="rviz" type="rviz"
-	args="-d $(find panda_env_bringup)/launch/panda_env_bringup.rviz"/>
+	args="-d $(find panda_env_bringup)/rviz/panda_env_bringup.rviz"/>
 
   <!-- Launch rqt joint_trajectory_controller -->
   <node if="$(arg use_rqt)"

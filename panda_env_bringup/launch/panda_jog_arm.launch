@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <!-- Load joint trajectory controller -->
   <rosparam file="$(find panda_env_bringup)/config/ros_controllers.yaml" />
